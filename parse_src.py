@@ -87,6 +87,7 @@ def parse_dly_file(input_file, output_file):
                 continue
             out_row = [
                 key, # general unique key
+                key[0:13], # stationmonth combo
                 key[0:11],  # station id
                 key[11:13], # month
                 key[-4:], # element being measure

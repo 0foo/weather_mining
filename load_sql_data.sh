@@ -1,4 +1,4 @@
-# create spell table from schema
+# create weather tables from schema
 sqlite3 ./output_data/weather.db < ./create_weather_tables.sql
 
 
@@ -9,7 +9,11 @@ sqlite3 ./output_data/weather.db <<EOF
 EOF
 
 
-
+# populate stations table
+sqlite3 ./output_data/weather.db <<EOF
+.mode csv
+.import ./output_data/ghcnd-us-stations.csv stations
+EOF
 
 
 # # output info
