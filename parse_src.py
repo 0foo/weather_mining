@@ -45,6 +45,9 @@ def parse_values(element, input_str):
         # convert to more human readable as it's recorded in data in tenths
         if element in ["TMAX", "TMIN", "PRCP"]:
             value = int(value) / 10
+        # convert temps to farenheight 
+        if element in ["TMAX", "TMIN"]:
+            value = (value * 1.8) + 32
         out_values.append(int(value))
     return out_values
 
