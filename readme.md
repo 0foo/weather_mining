@@ -8,6 +8,7 @@
     * theoretically would work with the big global dataset
 
 * Select the stations with the most months with low and high between 30 degrees and 75 degrees.
+    * plotted on [google maps](https://www.google.com/maps/d/edit?mid=11qYJOQ2cX9j3T-x5UO5ykXmjUToSdEs&usp=sharing)
 
 ```
 sqlite> select station,state,name,lat,long,count from stations join (select station, count(*) as count from station_min_max where min > 30 and max < 75 group by station) as cs on cs.station=stations.stationid where count > 6 order by count;
