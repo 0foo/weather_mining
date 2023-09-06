@@ -7,7 +7,7 @@
 * This is only US data for now 250ish megs compressed vs ~3ish gigs compressed
     * theoretically would work with the big global dataset
 
-* Select the stations with the most months between 30 degrees and 75 degrees.
+* Select the stations with the most months with low and high between 30 degrees and 75 degrees.
 
 ```
 sqlite> select station,state,name,lat,long,count from stations join (select station, count(*) as count from station_min_max where min > 30 and max < 75 group by station) as cs on cs.station=stations.stationid where count > 6 order by count;
