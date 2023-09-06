@@ -102,7 +102,7 @@ def parse_dly_file(input_file, output_file):
         with open(output_file, "a") as out_file:
             write = csv.writer(out_file, quoting=csv.QUOTE_ALL)
             write.writerows(out)
-
+        
 
 def parse_dly_dir(input_dir, output_file):
     # were appending each iteration so to avoid duplication delete the file and start from scratch, living that idempotent life
